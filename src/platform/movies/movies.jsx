@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Table from "../../components/common/table/table";
 import fetchMovies from "../../resources/fetchMovies";
+import { columns } from "./column";
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
@@ -12,7 +13,7 @@ const Movies = () => {
 
     return (
         <>
-            <Table items={movies} />
+            <Table rows={movies} columns={columns} />
         </>
     );
 };

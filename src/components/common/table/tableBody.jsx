@@ -1,18 +1,11 @@
-import { iconFill } from "../../../resources/icons";
-
-const TableBody = ({ items }) => {
+const TableBody = ({ rows, columns }) => {
     return (
         <tbody>
-            {items.map((movie) => (
-                <tr key={movie.id}>
-                    <td>{movie.id}</td>
-                    <td>
-                        <img src={movie.image} alt={movie.fullTitle} />
-                    </td>
-                    <td>{movie.fullTitle}</td>
-                    <td>{movie.imDbRating}</td>
-                    <td>{movie.imDbRatingCount}</td>
-                    <td>{iconFill}</td>
+            {rows.map((row) => (
+                <tr key={row.id}>
+                    {columns.map((column) => (
+                        <td key={column.path}>{column.content(row, column)}</td>
+                    ))}
                 </tr>
             ))}
         </tbody>

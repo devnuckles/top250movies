@@ -1,13 +1,10 @@
-const TableHeader = () => {
+const TableHeader = ({ columns }) => {
     return (
         <thead>
             <tr>
-                <th scope="col">SL</th>
-                <th scope="col">Poster</th>
-                <th scope="col">Movie Name</th>
-                <th scope="col">Rating</th>
-                <th scope="col">Total Review</th>
-                <th scope="col">Your Review</th>
+                {columns.map((column) => (
+                    <th key={column.path}> {column.label} </th>
+                ))}
             </tr>
         </thead>
     );
